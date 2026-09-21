@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beta Lab | Developer / Modder / Writer</title>
+  <meta name="description" content="Beta Lab — Software, Paradox Mods, Research, Novels and Articles by BETA-15.">
+  <meta name="theme-color" content="#08111f">
+
+  <title>Beta Lab | Software / Mods / Research / Novels</title>
 
   <style>
     :root {
-      --bg: #08111f;
-      --bg-soft: #101b2d;
-      --card: rgba(17, 29, 48, 0.82);
-      --card-hover: rgba(23, 39, 64, 0.95);
-      --text: #edf4ff;
-      --muted: #9cadc5;
-      --accent: #78a9ff;
-      --accent-2: #9b87f5;
+      --bg: #07101d;
+      --bg-soft: #0d1728;
+      --card: rgba(15, 27, 46, 0.82);
+      --card-hover: rgba(22, 38, 63, 0.96);
+      --text: #eef4ff;
+      --muted: #9eacc1;
+      --accent: #80adff;
+      --accent-2: #b18cff;
       --line: rgba(255,255,255,0.09);
-      --tag: rgba(120,169,255,0.12);
+      --tag: rgba(128,173,255,0.12);
       --max: 1180px;
+      --shadow: 0 24px 80px rgba(0,0,0,.28);
     }
 
     * {
@@ -36,20 +40,32 @@
         BlinkMacSystemFont,
         "Segoe UI",
         "Noto Sans JP",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
         sans-serif;
 
-      background:
-        radial-gradient(circle at top left, rgba(80,120,220,.13), transparent 35%),
-        radial-gradient(circle at top right, rgba(150,90,220,.10), transparent 30%),
-        var(--bg);
-
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(70,120,220,.16), transparent 30%),
+        radial-gradient(circle at 90% 4%, rgba(152,84,220,.12), transparent 30%),
+        linear-gradient(180deg, #08111f 0%, #07101d 100%);
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
     }
 
     .container {
@@ -63,22 +79,24 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8, 17, 31, 0.82);
-      backdrop-filter: blur(18px);
+      background: rgba(7,16,29,.82);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      height: 70px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
-      font-size: 1.25rem;
-      font-weight: 800;
+      font-size: 1.28rem;
+      font-weight: 900;
       letter-spacing: .04em;
+      white-space: nowrap;
     }
 
     .brand span {
@@ -86,81 +104,103 @@
     }
 
     nav ul {
-      display: flex;
       list-style: none;
-      gap: 26px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
       font-size: .92rem;
       color: var(--muted);
+    }
+
+    nav a {
+      transition: color .2s ease;
     }
 
     nav a:hover {
       color: var(--text);
     }
 
+    .mobile-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
     /* Hero */
 
     .hero {
-      min-height: 76vh;
+      padding: 96px 0 80px;
+      min-height: 78vh;
       display: flex;
       align-items: center;
-      padding: 80px 0;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.25fr .75fr;
-      gap: 60px;
+      gap: 64px;
       align-items: center;
     }
 
     .eyebrow {
       color: var(--accent);
-      font-weight: 700;
-      letter-spacing: .14em;
+      font-weight: 800;
+      letter-spacing: .16em;
       font-size: .78rem;
       margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6.4rem);
-      line-height: .95;
-      letter-spacing: -.05em;
+      font-size: clamp(3.4rem, 8vw, 6.8rem);
+      line-height: .92;
+      letter-spacing: -.06em;
       margin-bottom: 28px;
     }
 
     .gradient {
-      background: linear-gradient(90deg, #91b9ff, #bc9aff);
+      background: linear-gradient(90deg, #9bc2ff, #c7a7ff);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
 
     .hero-description {
       max-width: 760px;
       color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 30px;
+      font-size: 1.08rem;
+      margin-bottom: 32px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      padding: 12px 19px;
-      border-radius: 10px;
+      min-height: 46px;
+      padding: 11px 18px;
+      border-radius: 11px;
       border: 1px solid var(--line);
-      font-weight: 650;
-      transition: .2s;
+      font-weight: 750;
+      transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
     }
 
     .button.primary {
       background: var(--accent);
-      color: #07101c;
+      color: #07101d;
       border-color: var(--accent);
     }
 
@@ -170,68 +210,77 @@
 
     .button:hover {
       transform: translateY(-2px);
+      border-color: rgba(128,173,255,.45);
     }
 
     .profile-panel {
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.065),
-        rgba(255,255,255,.025)
-      );
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.065),
+          rgba(255,255,255,.022)
+        );
       border: 1px solid var(--line);
       border-radius: 24px;
       padding: 28px;
-      box-shadow: 0 30px 90px rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
     }
 
     .profile-panel h3 {
       margin-bottom: 18px;
+      font-size: 1.1rem;
     }
 
     .profile-list {
       display: grid;
-      gap: 14px;
+      gap: 13px;
     }
 
     .profile-row {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 12px;
       gap: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
     }
 
     .profile-row:last-child {
-      border-bottom: none;
+      border-bottom: 0;
+      padding-bottom: 0;
     }
 
-    .profile-row span:first-child {
+    .profile-row span {
       color: var(--muted);
+    }
+
+    .profile-row strong {
+      text-align: right;
     }
 
     /* Sections */
 
     section {
-      padding: 100px 0;
+      padding: 96px 0;
     }
 
     .section-header {
-      margin-bottom: 42px;
-      max-width: 760px;
+      max-width: 780px;
+      margin-bottom: 40px;
     }
 
     .section-number {
       color: var(--accent);
-      font-size: .8rem;
       font-weight: 800;
       letter-spacing: .16em;
+      font-size: .78rem;
       margin-bottom: 8px;
     }
 
     h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
       margin-bottom: 14px;
-      letter-spacing: -.03em;
     }
 
     .section-description {
@@ -247,39 +296,63 @@
     }
 
     .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 265px;
+      display: flex;
+      flex-direction: column;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 26px;
-      transition: .25s;
-      display: flex;
-      flex-direction: column;
-      min-height: 250px;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        border-color .22s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
       background: var(--card-hover);
-      border-color: rgba(120,169,255,.3);
+      border-color: rgba(128,173,255,.30);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -60px;
+      top: -60px;
+      background: radial-gradient(circle, rgba(128,173,255,.14), transparent 70%);
+      pointer-events: none;
     }
 
     .card-type {
-      font-size: .75rem;
       color: var(--accent);
       font-weight: 800;
-      letter-spacing: .12em;
-      margin-bottom: 16px;
+      font-size: .74rem;
+      letter-spacing: .13em;
+      margin-bottom: 15px;
     }
 
     .card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 10px;
+      font-size: 1.3rem;
+      line-height: 1.45;
+      margin-bottom: 12px;
     }
 
     .card p {
       color: var(--muted);
       font-size: .94rem;
-      flex-grow: 1;
+    }
+
+    .card p + p {
+      margin-top: 12px;
+    }
+
+    .card-body {
+      flex: 1;
     }
 
     .tags {
@@ -291,22 +364,28 @@
 
     .tag {
       background: var(--tag);
-      color: #b9d2ff;
+      color: #bdd5ff;
       border-radius: 999px;
       padding: 5px 10px;
-      font-size: .73rem;
+      font-size: .72rem;
     }
 
     .card-links {
       display: flex;
+      flex-wrap: wrap;
       gap: 14px;
       margin-top: 22px;
       font-size: .86rem;
-      font-weight: 700;
+      font-weight: 750;
     }
 
     .card-links a {
       color: var(--accent);
+    }
+
+    .card-links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* Research */
@@ -318,33 +397,41 @@
 
     .research-item {
       display: grid;
-      grid-template-columns: 100px 1fr auto;
+      grid-template-columns: 90px 1fr;
       gap: 24px;
-      align-items: center;
-      padding: 24px 0;
+      padding: 28px 0;
       border-bottom: 1px solid var(--line);
     }
 
     .research-year {
       color: var(--muted);
+      font-variant-numeric: tabular-nums;
     }
 
     .research-title {
-      font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
+      font-weight: 800;
+      line-height: 1.5;
     }
 
     .research-topic {
       color: var(--muted);
-      font-size: .85rem;
+      font-size: .86rem;
+      margin-top: 8px;
+    }
+
+    .research-meta {
+      color: var(--muted);
+      font-size: .86rem;
+      margin-top: 10px;
     }
 
     /* About */
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 52px;
     }
 
     .about-text p {
@@ -354,22 +441,23 @@
 
     .interests {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 9px;
     }
 
     .interest {
       border: 1px solid var(--line);
-      padding: 8px 13px;
-      border-radius: 8px;
-      font-size: .85rem;
+      background: rgba(255,255,255,.025);
+      border-radius: 9px;
+      padding: 8px 12px;
+      font-size: .84rem;
     }
 
     /* Footer */
 
     footer {
       border-top: 1px solid var(--line);
-      padding: 45px 0;
+      padding: 44px 0;
       color: var(--muted);
       font-size: .86rem;
     }
@@ -378,11 +466,22 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
     }
 
     /* Responsive */
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .hero-grid,
       .about-grid {
         grid-template-columns: 1fr;
@@ -392,19 +491,45 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      nav {
-        display: none;
+      .hero {
+        min-height: auto;
+      }
+
+      .profile-panel {
+        max-width: 680px;
       }
     }
 
-    @media (max-width: 650px) {
-      .container {
-        width: min(calc(100% - 28px), var(--max));
+    @media (max-width: 760px) {
+      .mobile-toggle {
+        display: inline-grid;
+        place-items: center;
       }
 
-      .hero {
-        min-height: auto;
-        padding: 70px 0;
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        padding: 14px 20px 20px;
+        background: rgba(7,16,29,.97);
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      nav a {
+        display: block;
+        padding: 11px 0;
       }
 
       .grid {
@@ -412,16 +537,48 @@
       }
 
       section {
-        padding: 75px 0;
+        padding: 74px 0;
+      }
+
+      .hero {
+        padding: 72px 0 58px;
       }
 
       .research-item {
         grid-template-columns: 1fr;
-        gap: 5px;
+        gap: 4px;
       }
 
       .footer-inner {
+        align-items: flex-start;
         flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      h1 {
+        font-size: clamp(3rem, 18vw, 4.4rem);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .profile-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .profile-row strong {
+        text-align: left;
       }
     }
   </style>
@@ -431,33 +588,40 @@
 
 <header>
   <div class="container nav">
-    <div class="brand">
+    <a class="brand" href="#top" aria-label="Beta Lab home">
       Beta<span>Lab</span>
-    </div>
+    </a>
 
-    <nav>
+    <button
+      class="mobile-toggle"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+      aria-controls="site-nav">
+      ☰
+    </button>
+
+    <nav id="site-nav">
       <ul>
         <li><a href="#software">Software</a></li>
         <li><a href="#mods">Mods</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#novels">Novels</a></li>
+        <li><a href="#articles">Articles</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="top">
 
   <!-- HERO -->
-
   <section class="hero">
     <div class="container hero-grid">
 
       <div>
-        <div class="eyebrow">
-          DEVELOPER / MODDER / WRITER
-        </div>
+        <div class="eyebrow">DEVELOPER / MODDER / WRITER</div>
 
         <h1>
           Beta<br>
@@ -465,66 +629,77 @@
         </h1>
 
         <p class="hero-description">
-          ゲームMod、ソフトウェア、歴史・経済に関する研究、
-          小説などを制作しています。
-          Paradox Interactive作品を中心としたMod開発のほか、
-          歴史制度・経済学・政治制度にも関心があります。
+          ソフトウェア、Paradox Interactive向けMod、研究・論文、小説、
+          記事などをまとめた個人制作・研究サイトです。
+          歴史、経済、制度、ゲームを中心に、分野をまたいで制作しています。
         </p>
 
         <div class="hero-actions">
-          <a class="button primary" href="#projects">
+          <a class="button primary" href="#software">
             制作物を見る →
           </a>
 
-          <a class="button secondary" href="#">
-            GitHub
+          <a
+            class="button secondary"
+            href="https://github.com/BETA-15/paradox-localization-translator"
+            target="_blank"
+            rel="noopener noreferrer">
+            GitHub ↗
           </a>
 
-          <a class="button secondary" href="#">
-            X / Twitter
+          <a
+            class="button secondary"
+            href="https://steamcommunity.com/profiles/76561198418574209/myworkshopfiles/?p=1&amp;numperpage=30"
+            target="_blank"
+            rel="noopener noreferrer">
+            Steam Workshop ↗
+          </a>
+
+          <a
+            class="button secondary"
+            href="https://note.com/witty_panda979"
+            target="_blank"
+            rel="noopener noreferrer">
+            note ↗
           </a>
         </div>
       </div>
 
-      <aside class="profile-panel">
-
+      <aside class="profile-panel" aria-label="Profile">
         <h3>Profile</h3>
 
         <div class="profile-list">
-
           <div class="profile-row">
             <span>Name</span>
-            <strong>Beta</strong>
+            <strong>BETA-15</strong>
           </div>
 
           <div class="profile-row">
-            <span>Development</span>
-            <strong>Python / Modding</strong>
+            <span>Software</span>
+            <strong>Paradox Localization Translator</strong>
           </div>
 
           <div class="profile-row">
-            <span>Games</span>
-            <strong>Victoria 3 / CK3</strong>
+            <span>Modding</span>
+            <strong>Victoria 3 / CK3 / HoI4</strong>
           </div>
 
           <div class="profile-row">
             <span>Research</span>
-            <strong>History / Economics</strong>
+            <strong>Zenodo / SSRN</strong>
           </div>
 
           <div class="profile-row">
             <span>Writing</span>
-            <strong>Historical SF / Fantasy</strong>
+            <strong>小説家になろう / note</strong>
           </div>
-
         </div>
-
       </aside>
+
     </div>
   </section>
 
   <!-- SOFTWARE -->
-
   <section id="software">
     <div class="container">
 
@@ -532,313 +707,341 @@
         <div class="section-number">01 — SOFTWARE</div>
         <h2>Software</h2>
         <p class="section-description">
-          自作ソフトウェアや開発ツール。
-          ゲーム制作・Mod開発を支援するツールを中心に開発しています。
+          Mod制作やローカライズ作業を支援するソフトウェアを開発しています。
         </p>
       </div>
 
       <div class="grid">
 
         <article class="card">
-
           <div class="card-type">DESKTOP APPLICATION</div>
 
-          <h3>
-            Paradox Localization Translator
-          </h3>
+          <div class="card-body">
+            <h3>Paradox Localization Translator</h3>
 
-          <p>
-            Paradox Interactive製ゲームのLocalizationファイルを扱うための
-            日本語化・翻訳支援ソフトウェア。
-            Mod翻訳作業の効率化を目的として開発しています。
-          </p>
+            <p>
+              Paradox Interactive系ゲームのLocalizationファイルを扱うための
+              日本語化・翻訳支援ソフトウェアです。
+            </p>
+
+            <p>
+              Mod翻訳やローカライズ作業を効率化し、
+              Paradox系ゲームの日本語化作業を支援することを目的としています。
+            </p>
+          </div>
 
           <div class="tags">
             <span class="tag">Python</span>
-            <span class="tag">Tkinter</span>
-            <span class="tag">macOS</span>
             <span class="tag">Localization</span>
+            <span class="tag">Paradox</span>
+            <span class="tag">Desktop App</span>
           </div>
 
           <div class="card-links">
-            <a href="#">詳細 →</a>
-            <a href="#">GitHub ↗</a>
+            <a
+              href="https://github.com/BETA-15/paradox-localization-translator"
+              target="_blank"
+              rel="noopener noreferrer">
+              GitHub ↗
+            </a>
+
+            <a
+              href="https://github.com/BETA-15/paradox-localization-translator/releases"
+              target="_blank"
+              rel="noopener noreferrer">
+              Releases ↗
+            </a>
           </div>
-
-        </article>
-
-        <article class="card">
-
-          <div class="card-type">COMING SOON</div>
-
-          <h3>Next Project</h3>
-
-          <p>
-            現在開発中、または今後公開するソフトウェアを掲載予定。
-          </p>
-
-          <div class="tags">
-            <span class="tag">Development</span>
-          </div>
-
         </article>
 
       </div>
     </div>
   </section>
 
-
   <!-- MODS -->
-
   <section id="mods">
     <div class="container">
 
       <div class="section-header">
         <div class="section-number">02 — MODS</div>
-
         <h2>Game Mods</h2>
-
         <p class="section-description">
-          Paradox Interactive作品を中心に制作しているMod。
-          歴史制度や経済システムの再現を重視しています。
+          Paradox Interactive作品を中心にModを制作しています。
+          経済、制度、歴史、UI、ローカライズなど幅広いテーマを扱っています。
         </p>
       </div>
 
       <div class="grid">
 
         <article class="card">
-
           <div class="card-type">VICTORIA 3 MOD</div>
 
-          <h3>
-            Ottoman Millet System Revival
-          </h3>
+          <div class="card-body">
+            <h3>Ottoman Millet System Revival</h3>
 
-          <p>
-            オスマン帝国のミッレト制度をテーマにしたVictoria 3 Mod。
-            宗教・民族・統治制度をゲームシステムとして再構成します。
-          </p>
+            <p>
+              Victoria 3向けに、オスマン帝国のミッレト制度をテーマとして
+              制作しているModです。
+            </p>
+          </div>
 
           <div class="tags">
             <span class="tag">Victoria 3</span>
             <span class="tag">History</span>
-            <span class="tag">Politics</span>
+            <span class="tag">Institutions</span>
           </div>
 
           <div class="card-links">
-            <a href="#">詳細 →</a>
-            <a href="#">Workshop ↗</a>
+            <a
+              href="https://steamcommunity.com/profiles/76561198418574209/myworkshopfiles/?p=1&amp;numperpage=30"
+              target="_blank"
+              rel="noopener noreferrer">
+              Workshopで見る ↗
+            </a>
           </div>
-
         </article>
 
         <article class="card">
+          <div class="card-type">PARADOX MODDING</div>
 
-          <div class="card-type">CRUSADER KINGS III</div>
+          <div class="card-body">
+            <h3>Victoria 3 / CK3 / HoI4</h3>
 
-          <h3>CK3 Projects</h3>
-
-          <p>
-            Crusader Kings III向けのUI・ゲームシステム・
-            マップ関連Modを開発しています。
-          </p>
+            <p>
+              Victoria 3、Crusader Kings III、Hearts of Iron IVなどを対象に、
+              ゲームシステムの拡張や歴史制度の再現を目的としたModを制作しています。
+            </p>
+          </div>
 
           <div class="tags">
+            <span class="tag">Victoria 3</span>
             <span class="tag">CK3</span>
+            <span class="tag">HoI4</span>
             <span class="tag">Modding</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-type">STEAM WORKSHOP</div>
+
+          <div class="card-body">
+            <h3>All Workshop Items</h3>
+
+            <p>
+              公開中のParadoxゲーム向けModは、
+              Steam Workshopの作者ページからまとめて確認できます。
+            </p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Steam Workshop</span>
+            <span class="tag">Published Mods</span>
           </div>
 
           <div class="card-links">
-            <a href="#">Projects →</a>
+            <a
+              href="https://steamcommunity.com/profiles/76561198418574209/myworkshopfiles/?p=1&amp;numperpage=30"
+              target="_blank"
+              rel="noopener noreferrer">
+              全作品を見る ↗
+            </a>
           </div>
-
         </article>
 
       </div>
     </div>
   </section>
 
-
   <!-- RESEARCH -->
-
   <section id="research">
-
     <div class="container">
 
       <div class="section-header">
         <div class="section-number">03 — RESEARCH</div>
-
-        <h2>Research & Papers</h2>
-
+        <h2>Research &amp; Papers</h2>
         <p class="section-description">
-          経済学、歴史制度、官僚制などについての研究・論考。
+          経済学、マクロ経済、制度、経済成長などに関する研究・論考。
+          論文はZenodoおよびSSRNで公開しています。
         </p>
       </div>
 
       <div class="research-list">
 
-        <a href="#" class="research-item">
-
+        <article class="research-item">
           <div class="research-year">2026</div>
 
           <div>
             <div class="research-title">
-              経済成長の上限と質的改善コストについて
+              General Theory on Structural Constraints:
+              Investment Traps, Expectation Formation,
+              and the Conditional Nature of Policy Effects
             </div>
 
             <div class="research-topic">
-              Economics / Productivity / Growth
+              Macroeconomics / Economic Growth / Structural Constraints
+            </div>
+
+            <div class="research-meta">
+              Published on Zenodo and SSRN
+            </div>
+
+            <div class="card-links">
+              <a
+                href="https://zenodo.org/records/21930654"
+                target="_blank"
+                rel="noopener noreferrer">
+                Zenodo ↗
+              </a>
+
+              <a
+                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5915003"
+                target="_blank"
+                rel="noopener noreferrer">
+                SSRN ↗
+              </a>
             </div>
           </div>
-
-          <div>→</div>
-
-        </a>
-
-
-        <a href="#" class="research-item">
-
-          <div class="research-year">2026</div>
-
-          <div>
-            <div class="research-title">
-              宋代軍事制度における軍政・軍令分離
-            </div>
-
-            <div class="research-topic">
-              Song Dynasty / Military Administration
-            </div>
-          </div>
-
-          <div>→</div>
-
-        </a>
-
-
-        <a href="#" class="research-item">
-
-          <div class="research-year">2026</div>
-
-          <div>
-            <div class="research-title">
-              ローマ帝国と中華帝国の行政制度比較
-            </div>
-
-            <div class="research-topic">
-              Roman Empire / Chinese Bureaucracy
-            </div>
-          </div>
-
-          <div>→</div>
-
-        </a>
+        </article>
 
       </div>
-
     </div>
   </section>
 
-
   <!-- NOVELS -->
-
   <section id="novels">
-
     <div class="container">
 
       <div class="section-header">
-
         <div class="section-number">04 — NOVELS</div>
-
         <h2>Novels</h2>
-
         <p class="section-description">
-          歴史、制度、経済をテーマにした創作作品。
+          歴史、制度、経済をテーマにした創作作品を公開しています。
         </p>
-
       </div>
 
       <div class="grid">
 
         <article class="card">
-
           <div class="card-type">HISTORICAL FANTASY</div>
 
-          <h3>
-            大宋の転生
-            <br>
-            ―覇道ではなく、王道を―
-          </h3>
+          <div class="card-body">
+            <h3>
+              大宋の転生<br>
+              ―覇道ではなく、王道を―
+            </h3>
 
-          <p>
-            南宋が異世界へ転移した世界を舞台に、
-            経済学、官僚制、外交、軍事制度を描く歴史ファンタジー。
-            武力による覇道ではなく、制度と徳による王道をテーマとしています。
-          </p>
+            <p>
+              南宋を基盤に、経済、官僚制、外交、軍事制度などを描く
+              歴史・制度重視のファンタジー作品です。
+            </p>
+          </div>
 
           <div class="tags">
             <span class="tag">南宋</span>
             <span class="tag">異世界</span>
-            <span class="tag">経済学</span>
+            <span class="tag">経済</span>
             <span class="tag">官僚制</span>
+            <span class="tag">歴史</span>
           </div>
 
           <div class="card-links">
-            <a href="#">作品紹介 →</a>
-            <a href="#">読む ↗</a>
-          </div>
+            <a
+              href="https://ncode.syosetu.com/n9418mr/"
+              target="_blank"
+              rel="noopener noreferrer">
+              作品を読む ↗
+            </a>
 
+            <a
+              href="https://mypage.syosetu.com/2826402/"
+              target="_blank"
+              rel="noopener noreferrer">
+              作者ページ ↗
+            </a>
+          </div>
         </article>
 
       </div>
-
     </div>
-
   </section>
 
-
-  <!-- ABOUT -->
-
-  <section id="about">
-
+  <!-- ARTICLES -->
+  <section id="articles">
     <div class="container">
 
       <div class="section-header">
+        <div class="section-number">05 — ARTICLES</div>
+        <h2>Articles &amp; Notes</h2>
+        <p class="section-description">
+          歴史、経済、ゲーム、制度、開発などについての記事や考察を公開しています。
+        </p>
+      </div>
 
-        <div class="section-number">05 — ABOUT</div>
+      <div class="grid">
 
+        <article class="card">
+          <div class="card-type">NOTE</div>
+
+          <div class="card-body">
+            <h3>BETA-15 on note</h3>
+
+            <p>
+              研究途中の考察や、歴史・経済・ゲーム・Mod開発などに関する
+              記事をnoteで公開しています。
+            </p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">History</span>
+            <span class="tag">Economics</span>
+            <span class="tag">Games</span>
+            <span class="tag">Essay</span>
+          </div>
+
+          <div class="card-links">
+            <a
+              href="https://note.com/witty_panda979"
+              target="_blank"
+              rel="noopener noreferrer">
+              noteを見る ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-number">06 — ABOUT</div>
         <h2>About Me</h2>
-
       </div>
 
       <div class="about-grid">
 
         <div class="about-text">
-
           <p>
             歴史、経済、政治制度、ゲームを中心に活動しています。
-            特に東ローマ帝国、オスマン帝国、中国王朝などの
-            行政制度・官僚制度に関心があります。
+            特に国家制度、官僚制、経済システム、歴史上の統治構造に関心があります。
           </p>
 
           <p>
-            Paradox Interactive作品ではVictoria 3や
-            Crusader Kings IIIを中心にプレイし、
-            ゲームシステムの拡張や歴史制度の再現を目的とした
-            Mod制作を行っています。
+            Paradox Interactive作品ではVictoria 3やCrusader Kings IIIなどを中心に、
+            ゲームシステムの拡張や歴史制度の再現を目的としたModを制作しています。
           </p>
 
           <p>
-            また、ソフトウェア開発、歴史・経済研究、
-            小説執筆などジャンルを限定せず制作活動を行っています。
+            また、ソフトウェア開発、研究・論文、小説、記事など、
+            分野を限定せず制作活動を行っています。
           </p>
-
         </div>
 
         <div>
-
-          <h3 style="margin-bottom:20px;">
-            Interests
-          </h3>
+          <h3 style="margin-bottom:20px;">Interests</h3>
 
           <div class="interests">
             <span class="interest">World History</span>
@@ -847,38 +1050,90 @@
             <span class="interest">Political Systems</span>
             <span class="interest">Victoria 3</span>
             <span class="interest">Crusader Kings III</span>
+            <span class="interest">Hearts of Iron IV</span>
             <span class="interest">Modding</span>
-            <span class="interest">Python</span>
+            <span class="interest">Software Development</span>
             <span class="interest">Science Fiction</span>
             <span class="interest">Historical Fiction</span>
           </div>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 </main>
 
-
 <footer>
-
   <div class="container footer-inner">
-
     <div>
-      © 2026 Beta Lab
+      © <span id="year"></span> Beta Lab
     </div>
 
-    <div>
-      GitHub · X / Twitter · Steam Workshop
-    </div>
+    <div class="footer-links">
+      <a
+        href="https://github.com/BETA-15/paradox-localization-translator"
+        target="_blank"
+        rel="noopener noreferrer">
+        GitHub
+      </a>
 
+      <a
+        href="https://steamcommunity.com/profiles/76561198418574209/myworkshopfiles/?p=1&amp;numperpage=30"
+        target="_blank"
+        rel="noopener noreferrer">
+        Steam Workshop
+      </a>
+
+      <a
+        href="https://note.com/witty_panda979"
+        target="_blank"
+        rel="noopener noreferrer">
+        note
+      </a>
+
+      <a
+        href="https://zenodo.org/records/21930654"
+        target="_blank"
+        rel="noopener noreferrer">
+        Zenodo
+      </a>
+
+      <a
+        href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5915003"
+        target="_blank"
+        rel="noopener noreferrer">
+        SSRN
+      </a>
+
+      <a
+        href="https://mypage.syosetu.com/2826402/"
+        target="_blank"
+        rel="noopener noreferrer">
+        小説家になろう
+      </a>
+    </div>
   </div>
-
 </footer>
+
+<script>
+  const toggle = document.querySelector(".mobile-toggle");
+  const nav = document.querySelector("#site-nav");
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
