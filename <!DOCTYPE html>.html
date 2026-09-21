@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beta Lab | Developer / Modder / Writer</title>
+
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #101b2d;
+      --card: rgba(17, 29, 48, 0.82);
+      --card-hover: rgba(23, 39, 64, 0.95);
+      --text: #edf4ff;
+      --muted: #9cadc5;
+      --accent: #78a9ff;
+      --accent-2: #9b87f5;
+      --line: rgba(255,255,255,0.09);
+      --tag: rgba(120,169,255,0.12);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans JP",
+        sans-serif;
+
+      background:
+        radial-gradient(circle at top left, rgba(80,120,220,.13), transparent 35%),
+        radial-gradient(circle at top right, rgba(150,90,220,.10), transparent 30%),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 17, 31, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 26px;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 76vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .14em;
+      font-size: .78rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: .95;
+      letter-spacing: -.05em;
+      margin-bottom: 28px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #91b9ff, #bc9aff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 19px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      font-weight: 650;
+      transition: .2s;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #07101c;
+      border-color: var(--accent);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,.03);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .profile-panel {
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.065),
+        rgba(255,255,255,.025)
+      );
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.25);
+    }
+
+    .profile-panel h3 {
+      margin-bottom: 18px;
+    }
+
+    .profile-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      gap: 20px;
+    }
+
+    .profile-row:last-child {
+      border-bottom: none;
+    }
+
+    .profile-row span:first-child {
+      color: var(--muted);
+    }
+
+    /* Sections */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 42px;
+      max-width: 760px;
+    }
+
+    .section-number {
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 14px;
+      letter-spacing: -.03em;
+    }
+
+    .section-description {
+      color: var(--muted);
+    }
+
+    /* Cards */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+      transition: .25s;
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      border-color: rgba(120,169,255,.3);
+    }
+
+    .card-type {
+      font-size: .75rem;
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: .12em;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .94rem;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: var(--tag);
+      color: #b9d2ff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: .73rem;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 22px;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .card-links a {
+      color: var(--accent);
+    }
+
+    /* Research */
+
+    .research-list {
+      display: grid;
+      border-top: 1px solid var(--line);
+    }
+
+    .research-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .research-year {
+      color: var(--muted);
+    }
+
+    .research-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .research-topic {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .interests {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .interest {
+      border: 1px solid var(--line);
+      padding: 8px 13px;
+      border-radius: 8px;
+      font-size: .85rem;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 45px 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .research-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      Beta<span>Lab</span>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#mods">Mods</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#novels">Novels</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <div class="eyebrow">
+          DEVELOPER / MODDER / WRITER
+        </div>
+
+        <h1>
+          Beta<br>
+          <span class="gradient">Lab.</span>
+        </h1>
+
+        <p class="hero-description">
+          ゲームMod、ソフトウェア、歴史・経済に関する研究、
+          小説などを制作しています。
+          Paradox Interactive作品を中心としたMod開発のほか、
+          歴史制度・経済学・政治制度にも関心があります。
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">
+            制作物を見る →
+          </a>
+
+          <a class="button secondary" href="#">
+            GitHub
+          </a>
+
+          <a class="button secondary" href="#">
+            X / Twitter
+          </a>
+        </div>
+      </div>
+
+      <aside class="profile-panel">
+
+        <h3>Profile</h3>
+
+        <div class="profile-list">
+
+          <div class="profile-row">
+            <span>Name</span>
+            <strong>Beta</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Development</span>
+            <strong>Python / Modding</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Games</span>
+            <strong>Victoria 3 / CK3</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Research</span>
+            <strong>History / Economics</strong>
+          </div>
+
+          <div class="profile-row">
+            <span>Writing</span>
+            <strong>Historical SF / Fantasy</strong>
+          </div>
+
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+  <!-- SOFTWARE -->
+
+  <section id="software">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-number">01 — SOFTWARE</div>
+        <h2>Software</h2>
+        <p class="section-description">
+          自作ソフトウェアや開発ツール。
+          ゲーム制作・Mod開発を支援するツールを中心に開発しています。
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+
+          <div class="card-type">DESKTOP APPLICATION</div>
+
+          <h3>
+            Paradox Localization Translator
+          </h3>
+
+          <p>
+            Paradox Interactive製ゲームのLocalizationファイルを扱うための
+            日本語化・翻訳支援ソフトウェア。
+            Mod翻訳作業の効率化を目的として開発しています。
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Tkinter</span>
+            <span class="tag">macOS</span>
+            <span class="tag">Localization</span>
+          </div>
+
+          <div class="card-links">
+            <a href="#">詳細 →</a>
+            <a href="#">GitHub ↗</a>
+          </div>
+
+        </article>
+
+        <article class="card">
+
+          <div class="card-type">COMING SOON</div>
+
+          <h3>Next Project</h3>
+
+          <p>
+            現在開発中、または今後公開するソフトウェアを掲載予定。
+          </p>
+
+          <div class="tags">
+            <span class="tag">Development</span>
+          </div>
+
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MODS -->
+
+  <section id="mods">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-number">02 — MODS</div>
+
+        <h2>Game Mods</h2>
+
+        <p class="section-description">
+          Paradox Interactive作品を中心に制作しているMod。
+          歴史制度や経済システムの再現を重視しています。
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+
+          <div class="card-type">VICTORIA 3 MOD</div>
+
+          <h3>
+            Ottoman Millet System Revival
+          </h3>
+
+          <p>
+            オスマン帝国のミッレト制度をテーマにしたVictoria 3 Mod。
+            宗教・民族・統治制度をゲームシステムとして再構成します。
+          </p>
+
+          <div class="tags">
+            <span class="tag">Victoria 3</span>
+            <span class="tag">History</span>
+            <span class="tag">Politics</span>
+          </div>
+
+          <div class="card-links">
+            <a href="#">詳細 →</a>
+            <a href="#">Workshop ↗</a>
+          </div>
+
+        </article>
+
+        <article class="card">
+
+          <div class="card-type">CRUSADER KINGS III</div>
+
+          <h3>CK3 Projects</h3>
+
+          <p>
+            Crusader Kings III向けのUI・ゲームシステム・
+            マップ関連Modを開発しています。
+          </p>
+
+          <div class="tags">
+            <span class="tag">CK3</span>
+            <span class="tag">Modding</span>
+          </div>
+
+          <div class="card-links">
+            <a href="#">Projects →</a>
+          </div>
+
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RESEARCH -->
+
+  <section id="research">
+
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-number">03 — RESEARCH</div>
+
+        <h2>Research & Papers</h2>
+
+        <p class="section-description">
+          経済学、歴史制度、官僚制などについての研究・論考。
+        </p>
+      </div>
+
+      <div class="research-list">
+
+        <a href="#" class="research-item">
+
+          <div class="research-year">2026</div>
+
+          <div>
+            <div class="research-title">
+              経済成長の上限と質的改善コストについて
+            </div>
+
+            <div class="research-topic">
+              Economics / Productivity / Growth
+            </div>
+          </div>
+
+          <div>→</div>
+
+        </a>
+
+
+        <a href="#" class="research-item">
+
+          <div class="research-year">2026</div>
+
+          <div>
+            <div class="research-title">
+              宋代軍事制度における軍政・軍令分離
+            </div>
+
+            <div class="research-topic">
+              Song Dynasty / Military Administration
+            </div>
+          </div>
+
+          <div>→</div>
+
+        </a>
+
+
+        <a href="#" class="research-item">
+
+          <div class="research-year">2026</div>
+
+          <div>
+            <div class="research-title">
+              ローマ帝国と中華帝国の行政制度比較
+            </div>
+
+            <div class="research-topic">
+              Roman Empire / Chinese Bureaucracy
+            </div>
+          </div>
+
+          <div>→</div>
+
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- NOVELS -->
+
+  <section id="novels">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-number">04 — NOVELS</div>
+
+        <h2>Novels</h2>
+
+        <p class="section-description">
+          歴史、制度、経済をテーマにした創作作品。
+        </p>
+
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+
+          <div class="card-type">HISTORICAL FANTASY</div>
+
+          <h3>
+            大宋の転生
+            <br>
+            ―覇道ではなく、王道を―
+          </h3>
+
+          <p>
+            南宋が異世界へ転移した世界を舞台に、
+            経済学、官僚制、外交、軍事制度を描く歴史ファンタジー。
+            武力による覇道ではなく、制度と徳による王道をテーマとしています。
+          </p>
+
+          <div class="tags">
+            <span class="tag">南宋</span>
+            <span class="tag">異世界</span>
+            <span class="tag">経済学</span>
+            <span class="tag">官僚制</span>
+          </div>
+
+          <div class="card-links">
+            <a href="#">作品紹介 →</a>
+            <a href="#">読む ↗</a>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-number">05 — ABOUT</div>
+
+        <h2>About Me</h2>
+
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-text">
+
+          <p>
+            歴史、経済、政治制度、ゲームを中心に活動しています。
+            特に東ローマ帝国、オスマン帝国、中国王朝などの
+            行政制度・官僚制度に関心があります。
+          </p>
+
+          <p>
+            Paradox Interactive作品ではVictoria 3や
+            Crusader Kings IIIを中心にプレイし、
+            ゲームシステムの拡張や歴史制度の再現を目的とした
+            Mod制作を行っています。
+          </p>
+
+          <p>
+            また、ソフトウェア開発、歴史・経済研究、
+            小説執筆などジャンルを限定せず制作活動を行っています。
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 style="margin-bottom:20px;">
+            Interests
+          </h3>
+
+          <div class="interests">
+            <span class="interest">World History</span>
+            <span class="interest">Economics</span>
+            <span class="interest">Bureaucracy</span>
+            <span class="interest">Political Systems</span>
+            <span class="interest">Victoria 3</span>
+            <span class="interest">Crusader Kings III</span>
+            <span class="interest">Modding</span>
+            <span class="interest">Python</span>
+            <span class="interest">Science Fiction</span>
+            <span class="interest">Historical Fiction</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div>
+      © 2026 Beta Lab
+    </div>
+
+    <div>
+      GitHub · X / Twitter · Steam Workshop
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
