@@ -7,7 +7,7 @@
   購読者数などの数字は SNAPSHOT の日付時点の値です。
 */
 
-const SNAPSHOT = "2026-09-28";
+const SNAPSHOT = "2026-10-02";
 
 const LINKS = {
   github: "https://github.com/BETA-15",
@@ -138,7 +138,7 @@ const MODS = [
 const PAPERS = [
   {
     year: "2026",
-    revision: { ja: "改訂72版（2026年9月）", en: "Revision 72 (September 2026)" },
+    revision: { ja: "改訂88版（2026年9月）", en: "Revision 88 (September 2026)" },
     title: "General Theory of Structural Constraints: Investment Trap, Demand-Constrained Growth, and Regime Shifts in Monetary Policy Transmission",
     titleJa: "構造的制約に関する一般理論",
     ja: "先進国で、雇用は改善するのに金融緩和が持続的な成長につながらない現象を、政策運営の失敗や一時的な需要不足ではなく、投資先そのものが構造的に枯渇した状態として説明する診断的な理論です。人口・制度・資本構造で決まる潜在的な制約「構造的フロンティア係数 Φ」と、政策効果が質的に変わる臨界値 θ を導入します。",
@@ -191,19 +191,21 @@ const SOFTWARE = [
   },
 ];
 
-/* ---------- 小説 ---------- */
+/* ---------- 小説 ----------
+   status: "ongoing"（連載中） / "complete"（完結） */
 const NOVELS = [
   {
     title: "大宋の転生",
     subtitle: "覇道ではなく、王道を",
     genre: { ja: "歴史・制度ファンタジー", en: "Historical & institutional fantasy" },
-    episodes: 42,
-    chars: 241579,
+    status: "complete",
+    episodes: 440,
+    chars: 2384136,
     ja: "経済学部の大学生・林修平が目を覚ますと、そこは国家ごと異世界に転生した「大宋」だった。武力を持たない一介の経済学徒が、科挙を経て官僚となり、信用創造と中央銀行、複式簿記、産業革命を通じて国の方向を示していく。主人公が強いのではない、国そのものが強い――制度と徳で世界を変えようとする国家の物語です。",
     en: "An economics student wakes up in the Great Song — an entire state reborn in another world. Without sword or magic, he passes the civil examinations and, through credit creation, a central bank, double-entry bookkeeping and an industrial revolution, helps point the empire in a new direction. Not a story of one overpowered hero, but of a state that seeks to rule by virtue and institutions. (Japanese only)",
     tags: ["南宋", "異世界", "経済", "官僚制", "科挙"],
     links: [
-      { label: { ja: "作品を読む", en: "Read (Japanese)" }, url: "https://ncode.syosetu.com/n9418mr/" },
+      { label: { ja: "作品を読む", en: "Read (Japanese)" }, url: "https://ncode.syosetu.com/n1032mv/" },
       { label: { ja: "作者ページ", en: "Author page" }, url: LINKS.syosetu },
     ],
   },

@@ -394,8 +394,8 @@
         </div>
         <h1 class="rise d2">Beta<br><em>Lab.</em></h1>
         <p class="lede rise d3">
-          <span data-l="ja">歴史・経済・制度を、ソフトウェアとMod、論文と小説で考える。Paradox系ゲームのMod制作から、マクロ経済学の理論研究、歴史ファンタジーの連載まで、分野をまたいで制作しています。</span>
-          <span data-l="en">Thinking through history, economics and institutions — in software, mods, papers and fiction. From Paradox game mods to macroeconomic theory and a serialized historical fantasy.</span>
+          <span data-l="ja">歴史・経済・制度を、ソフトウェアとMod、論文と小説で考える。Paradox系ゲームのMod制作から、マクロ経済学の理論研究、歴史ファンタジー小説まで、分野をまたいで制作しています。</span>
+          <span data-l="en">Thinking through history, economics and institutions — in software, mods, papers and fiction. From Paradox game mods to macroeconomic theory and a historical fantasy novel.</span>
         </p>
         <div class="actions rise d4">
           <a class="btn primary" href="#mods"><span data-l="ja">作品を見る</span><span data-l="en">See the work</span> →</a>
@@ -488,8 +488,8 @@
         <div class="sec-no">04</div>
         <h2><small>Novels</small><span data-l="ja">小説</span><span data-l="en">Novels</span></h2>
         <p>
-          <span data-l="ja">歴史・制度・経済を軸にした創作を「小説家になろう」で連載しています。</span>
-          <span data-l="en">Fiction built around history, institutions and economics, serialized on Shōsetsuka ni Narō (in Japanese).</span>
+          <span data-l="ja">歴史・制度・経済を軸にした創作を「小説家になろう」で発表しています。</span>
+          <span data-l="en">Fiction built around history, institutions and economics, published on Shōsetsuka ni Narō (in Japanese).</span>
         </p>
       </div>
       <div id="novel-list"></div>
@@ -587,6 +587,11 @@
   const totalSubs = MODS.reduce((s, m) => s + m.subs, 0);
   const gameCount = new Set(MODS.map((m) => m.game)).size;
   const episodes = NOVELS.reduce((s, n) => s + n.episodes, 0);
+  const NOVEL_STATUS = { ongoing: { ja: "連載中", en: "Ongoing" }, complete: { ja: "完結", en: "Complete" } };
+  const novelSummary = () => {
+    const done = NOVELS.filter((n) => n.status === "complete").length, live = NOVELS.length - done;
+    return [done && J(`完結 ${done}作品`, `${done} complete`), live && J(`連載中 ${live}作品`, `${live} ongoing`)].filter(Boolean).join(J("・", " · "));
+  };
   const publicSw = SOFTWARE.filter((s) => s.status === "public").length;
 
   function renderToc() {
@@ -594,7 +599,7 @@
       ["01", "#research", J("研究・論文", "Research"), `<b>${PAPERS.length}</b>${J("本", PAPERS.length > 1 ? " papers" : " paper")}<small>${esc(tx(PAPERS[0].revision).split("（")[0].split(" (")[0])}</small>`],
       ["02", "#mods", "Mod", `<b>${MODS.length}</b>${J("本", " mods")}<small>${J(`${gameCount}タイトル・購読 ${num(totalSubs)}`, `${gameCount} games · ${num(totalSubs)} subscribers`)}</small>`],
       ["03", "#software", J("ソフトウェア", "Software"), `<b>${SOFTWARE.length}</b>${J("本", " tools")}<small>${J(`公開 ${publicSw}・開発中 ${SOFTWARE.length - publicSw}`, `${publicSw} public · ${SOFTWARE.length - publicSw} in development`)}</small>`],
-      ["04", "#novels", J("小説", "Novels"), `<b>${episodes}</b>${J("話", " episodes")}<small>${J(`${NOVELS.length}作品を連載中`, `${NOVELS.length} serial`)}</small>`],
+      ["04", "#novels", J("小説", "Novels"), `<b>${episodes}</b>${J("話", " episodes")}<small>${novelSummary()}</small>`],
       ["05", "#articles", J("記事", "Articles"), `<b>${ARTICLES.length}</b>${J("本", " articles")}<small>note</small>`],
     ];
     $("toc").innerHTML = rows.map(([no, href, name, val]) =>
@@ -632,7 +637,7 @@
           <span class="vert t">${esc(n.title)}</span>
         </div>
         <div class="feat-body">
-          <div class="label">${J("連載小説", "Serial novel")} · ${n.episodes}${J("話", " episodes")}</div>
+          <div class="label">${J("小説", "Novel")} · ${n.episodes}${J("話", " episodes")} · ${esc(tx(NOVEL_STATUS[n.status]))}</div>
           <h3>${esc(n.title)}</h3>
           <p>${esc(tx(n.genre))}</p>
         </div>
@@ -768,8 +773,8 @@
           <p class="syn">${esc(tx(n))}</p>
           <div class="facts">
             <div><b class="num">${n.episodes}</b>${J("話", "episodes")}</div>
-            <div><b class="num">${J(Math.round(n.chars / 10000) + "万", Math.round(n.chars / 1000) + "k")}</b>${J("字", "characters")}</div>
-            <div><b>${J("連載中", "Ongoing")}</b>${J("小説家になろう", "on Narō")}</div>
+            <div><b class="num">${J(Math.round(n.chars / 10000) + "万", n.chars >= 1e6 ? (n.chars / 1e6).toFixed(2) + "M" : Math.round(n.chars / 1000) + "k")}</b>${J("字", "characters")}</div>
+            <div><b>${esc(tx(NOVEL_STATUS[n.status]))}</b>${J("小説家になろう", "on Narō")}</div>
           </div>
           <div class="tags">${n.tags.map((t) => `<span class="chip">${esc(t)}</span>`).join("")}</div>
           <div class="link-row">${n.links.map((l) => `<a href="${l.url}" ${ext}>${esc(tx(l.label))} ↗</a>`).join("")}</div>
