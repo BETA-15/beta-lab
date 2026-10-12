@@ -7,15 +7,16 @@
   購読者数などの数字は SNAPSHOT の日付時点の値です。
 */
 
-const SNAPSHOT = "2026-10-02";
+const SNAPSHOT = "2026-10-12";
 
 const LINKS = {
   github: "https://github.com/BETA-15",
   workshop: "https://steamcommunity.com/profiles/76561198418574209/myworkshopfiles/?p=1&numperpage=30",
-  note: "https://note.com/witty_panda979",
+  note: "https://note.com/beta15_lab",
   syosetu: "https://mypage.syosetu.com/2826402/",
   zenodo: "https://doi.org/10.5281/zenodo.17967671",
   ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5915003",
+  youtube: "https://www.youtube.com/@BETA15-Lab",
 };
 
 const GAMES = {
@@ -30,86 +31,86 @@ const GAMES = {
    archived: true にすると「更新停止」と表示 */
 const MODS = [
   {
-    id: "3799636904", game: "vic3", subs: 107, updated: "2026-09-29", featured: true,
+    id: "3799636904", game: "vic3", subs: 1660, updated: "2026-10-11", featured: true,
     title: "天朝維新 — Celestial Reformation",
     ja: "1836年の清朝を大規模に作り直すオーバーホール。官僚制・科挙・八旗を法律として再現し、洋務運動から新政、立憲へと続く一世紀の改革を導きます。",
     en: "A large overhaul of Qing China in 1836. The bureaucracy, civil examinations and Eight Banners become laws, and you lead a century of reform from Self-Strengthening to constitutional change.",
     extra: { label: { ja: "トレーラー", en: "Trailer" }, url: "https://www.youtube.com/watch?v=BrIBh-uh5ro" },
   },
   {
-    id: "3803026099", game: "vic3", subs: 216, updated: "2026-09-20",
+    id: "3803026099", game: "vic3", subs: 330, updated: "2026-10-07",
     title: "Financial Districts & Household Economy — 金融街と家計経済",
     ja: "金融街に「金融商品」の生産を加え、現代の統計を参考に、所得階層ごとの家計支出（食料・住居・サービス）の配分を見直します。",
     en: "Adds financial production to Financial Districts and reshapes household spending on food, housing and services across income levels, using modern statistics as a reference.",
   },
   {
-    id: "3805180298", game: "vic3", subs: 187, updated: "2026-09-21",
+    id: "3805180298", game: "vic3", subs: 296, updated: "2026-10-07",
     title: "Productive Economy — 生産経済改革",
     ja: "30の生産方式で石油・ゴムの投入を半減し、差額を他の投入へ振り替えます。工場や公共施設が、インフラ使用量に応じて輸送を購入するようになります。",
     en: "Halves oil and rubber inputs across 30 production methods, and makes factories and public buildings buy transportation in proportion to their infrastructure use.",
   },
   {
-    id: "3805394014", game: "vic3", subs: 137, updated: "2026-09-25",
+    id: "3805394014", game: "vic3", subs: 364, updated: "2026-09-25",
     title: "National Economy Statistics — 国民経済統計",
     ja: "財別・三部門別・産業別に、国内生産とGDPへの寄与を表・円グラフ・ツリーマップで確認できる統計画面を追加します。",
     en: "Explore domestic production and GDP contributions by good, by sector and by industry, in tables, pie charts and treemaps.",
   },
   {
-    id: "3805402953", game: "vic3", subs: 123, updated: "2026-09-27",
+    id: "3805402953", game: "vic3", subs: 392, updated: "2026-09-27",
     title: "National Budget Charts — 国家予算グラフ",
     ja: "予算画面の概要タブに、歳入と歳出の内訳を示す4つの円グラフと、構成比の一覧を追加します。",
     en: "Adds four pie charts to the Budget panel, with percentage breakdowns of revenue and expenditure.",
   },
   {
-    id: "3526524821", game: "vic3", subs: 35, updated: "2026-09-27",
+    id: "3526524821", game: "vic3", subs: 47, updated: "2026-09-27",
     title: "Aristocratic Investment Overhaul",
     ja: "荘園を通じた貴族の工業投資を広げ、介入主義を「貴族経済」に置き換えます。地主の富が工場への投資に向かう道筋をつくるModです。",
     en: "Expands aristocratic investment through Manor Houses and reshapes Interventionism into an Aristocratic Economy — from landed wealth to industrial investment.",
   },
   {
-    id: "3514165766", game: "vic3", subs: 21, updated: "2026-09-21",
+    id: "3514165766", game: "vic3", subs: 28, updated: "2026-09-21",
     title: "Ottoman Millet System Revival",
     ja: "オスマン帝国のミッレト制を、専用の法律と17の社会階層で表現します。宗教・文化・職業の違いが、受容度と政治姿勢を左右します。",
     en: "Represents the Ottoman millet system through dedicated laws and 17 social classes, where religion, culture and occupation shape acceptance and political attitudes.",
   },
   {
-    id: "3509208696", game: "vic3", subs: 27, updated: "2026-09-29",
+    id: "3509208696", game: "vic3", subs: 36, updated: "2026-09-30",
     title: "5% Worker Investment",
     ja: "協同所有制のもとで、労働者が受け取る配当からの投資プール拠出率を5ポイント上げる小さな調整です。",
     en: "A small adjustment: Laborers contribute 5 more percentage points of their dividends to the investment pool under Cooperative Ownership.",
   },
   {
-    id: "3799876745", game: "vic3", subs: 28, updated: "2026-09-28",
+    id: "3799876745", game: "vic3", subs: 44, updated: "2026-10-07",
     title: "Artisans Revived／職人の復活",
     ja: "Victoria 2の職人を、新しい職業と工房として復活させます。自給農業と工場労働のあいだの受け皿となり、失業に応じて工房が自動で増減します。",
     en: "Brings back Victoria 2's artisans as a profession with their own workshops — a bridge between subsistence farming and factory work that grows with unemployment.",
   },
   {
-    id: "3578660113", game: "vic3", subs: 13, updated: "2026-09-21",
+    id: "3578660113", game: "vic3", subs: 24, updated: "2026-09-21",
     title: "Millet System Effect Change",
     ja: "ミッレト制のもとでの改宗を止めて宗教共同体を保ち、首都と陸続きの州の編入を速めます。",
     en: "Preserves religious communities by disabling conversion under the Millet System, and speeds up incorporation of states connected to the capital.",
   },
   {
-    id: "3804406116", game: "vic3", subs: 9, updated: "2026-09-21",
+    id: "3804406116", game: "vic3", subs: 19, updated: "2026-09-21",
     title: "Mac Map Stability — Gentle City Effects",
     ja: "Mac版のクラッシュを減らすため、3Dマップを保ったまま、都市の煙・エフェクトとマップの影の描画負荷を下げます。",
     en: "Reduces crashes on the Mac version by lowering the load of city smoke, effects and map shadows while keeping the 3D map.",
   },
   {
-    id: "3713604636", game: "ck3", subs: 22, updated: "2026-10-01",
+    id: "3713604636", game: "ck3", subs: 26, updated: "2026-10-01",
     title: "Celestial Government – Japanese Localization & Hotfix",
     ja: "天朝政府（Celestial Government）の日本語訳を改善し、独立戦争・大遠征・未創設の公爵位・AIの文化同化まわりの不具合を修正します。",
     en: "Improves the Japanese localization of the Celestial Government and fixes independence wars, Grand Campaigns, uncreated duchies and AI assimilation projects.",
   },
   {
-    id: "3776275128", game: "ck3", subs: 5, updated: "2026-09-21",
+    id: "3776275128", game: "ck3", subs: 6, updated: "2026-09-21",
     title: "Reset Title Name",
     ja: "称号のカスタマイズ画面に、名前のリセット、元に戻せる改名、標準名の表示を追加します。",
     en: "Adds name resetting, reversible renaming and a standard-name display to the title customization window.",
   },
   {
-    id: "3785176960", game: "ck3", subs: 6, updated: "2026-10-01",
+    id: "3785176960", game: "ck3", subs: 7, updated: "2026-10-01",
     title: "CK3 Debug Language Switcher",
     ja: "ポーズメニューから、日本語を含む9言語へ直接切り替えられるボタンを追加します。",
     en: "Adds a pause-menu button to switch directly between nine languages, including Japanese.",
@@ -138,12 +139,12 @@ const MODS = [
 const PAPERS = [
   {
     year: "2026",
-    revision: { ja: "改訂88版（2026年9月）", en: "Revision 88 (September 2026)" },
+    revision: { ja: "改訂89版（2026年10月）", en: "Revision 89 (October 2026)" },
     title: "General Theory of Structural Constraints: Investment Trap, Demand-Constrained Growth, and Regime Shifts in Monetary Policy Transmission",
     titleJa: "構造的制約に関する一般理論",
-    ja: "先進国で、雇用は改善するのに金融緩和が持続的な成長につながらない現象を、政策運営の失敗や一時的な需要不足ではなく、投資先そのものが構造的に枯渇した状態として説明する診断的な理論です。人口・制度・資本構造で決まる潜在的な制約「構造的フロンティア係数 Φ」と、政策効果が質的に変わる臨界値 θ を導入します。",
-    en: "A diagnostic theory of why monetary easing in advanced economies improves employment but no longer produces sustained growth. It reads this not as a policy failure or a temporary demand shortfall, but as the structural depletion of investment outlets, introducing the structural frontier coefficient Φ and the critical threshold θ at which policy effects change qualitatively.",
-    keywords: ["Structural constraints", "Investment traps", "Demand-constrained growth", "Secular stagnation", "Monetary policy transmission", "JEL E12 · E22 · E44 · E52 · J11 · O41"],
+    ja: "先進国で、雇用は改善するのに金融緩和が持続的な成長につながらない現象を、政策運営の失敗や一時的な需要不足ではなく、投資先そのものが構造的に枯渇した状態として説明する診断的な理論です。人口・制度・資本構造で決まる潜在的な制約「構造的フロンティア係数 Φ」と、政策効果が質的に変わる臨界値 θ を導入し、経済が成熟すると需要の側から成長が制約される「需要制約成長仮説」を示します。結果の変数からΦを逆算しない、二層の診断手順も提示します。",
+    en: "A diagnostic theory of why monetary easing in advanced economies improves employment but no longer produces sustained growth. It reads this not as a policy failure or a temporary demand shortfall, but as the structural depletion of investment outlets, introducing the structural frontier coefficient Φ, the critical threshold θ at which policy effects change qualitatively, and a demand-constrained growth hypothesis for mature economies. It also sets out a two-layer diagnostic procedure that never back-calculates Φ from outcome variables.",
+    keywords: ["Structural constraints", "Investment traps", "Demand-constrained growth", "Secular stagnation", "Monetary policy transmission", "Structural frontier", "Diagnostic macroeconomics", "JEL E12 · E22 · E44 · E52 · J11 · O41"],
     links: [
       { label: "Zenodo", url: LINKS.zenodo, note: { ja: "最新版", en: "latest version" } },
       { label: "SSRN", url: LINKS.ssrn },
@@ -212,39 +213,78 @@ const NOVELS = [
 ];
 
 /* ---------- 記事（note） ----------
-   topic: econ（経済） / politics（政治制度） / mac（Mac検証） */
+   topic: econ（経済） / politics（政治制度） / history（歴史） / ai（AI・開発） / mac（Mac検証） */
 const TOPICS = {
   econ: { ja: "経済", en: "Economics" },
   politics: { ja: "政治制度", en: "Political systems" },
+  history: { ja: "歴史", en: "History" },
+  ai: { ja: "AI・開発", en: "AI & dev tools" },
   mac: { ja: "Mac検証", en: "Mac testing" },
 };
 
 const ARTICLES = [
-  { date: "2026-09-28", topic: "mac", url: "https://note.com/witty_panda979/n/nce4cf483c0da",
+  { date: "2026-10-12", topic: "history", url: "https://note.com/beta15_lab/n/ncdb7f5d47e04",
+    ja: "スターリン時代のソ連の人々は、どう暮らしていたのか ── 飢饉・配給・コムナルカ",
+    en: "How did ordinary people live in Stalin's Soviet Union? Famine, rationing and the kommunalka" },
+  { date: "2026-10-11", topic: "ai", url: "https://note.com/beta15_lab/n/n11b3b91a4125",
+    ja: "Claude Codeの中からGPTを呼ぶ方法 ── OpenAI公式の拡張機能で、ChatGPTの枠を使う",
+    en: "Calling GPT from inside Claude Code, using OpenAI's official extension and your ChatGPT plan" },
+  { date: "2026-10-10", topic: "ai", url: "https://note.com/beta15_lab/n/n338d7db65207",
+    ja: "Claude Codeの「プロジェクト」機能、開発ではあまり使わない方がいい ── 通常のCode会話で3層統括する方法",
+    en: "Why I avoid Claude Code's Projects feature for development, and run a three-layer setup in ordinary Code chats instead" },
+  { date: "2026-09-28", topic: "mac", url: "https://note.com/beta15_lab/n/nce4cf483c0da",
     ja: "新しい「Siri AI」はMacの中で動いているのか？ ログと通信量で確かめてみた",
     en: "Does the new Siri AI run on the Mac itself? Checking the logs and network traffic" },
-  { date: "2026-09-21", topic: "politics", url: "https://note.com/witty_panda979/n/ne65909ab89b2",
+  { date: "2026-09-21", topic: "politics", url: "https://note.com/beta15_lab/n/ne65909ab89b2",
     ja: "新たな選挙制度の提案――小選挙区二回投票制・政党名補助方式",
     en: "A proposal for a new electoral system: two-round single-member districts with party-name support" },
-  { date: "2026-09-21", topic: "politics", url: "https://note.com/witty_panda979/n/n11dd473c8401",
+  { date: "2026-09-21", topic: "politics", url: "https://note.com/beta15_lab/n/n11dd473c8401",
     ja: "官僚民主主義の提案",
     en: "A proposal for bureaucratic democracy" },
-  { date: "2026-07-26", topic: "mac", url: "https://note.com/witty_panda979/n/n217fbff1e33b",
+  { date: "2026-07-26", topic: "mac", url: "https://note.com/beta15_lab/n/n217fbff1e33b",
     ja: "【続報】14インチMacBook Pro（M5 Max）のハイパワーモード不具合、Appleが問題を口頭で認める",
     en: "Follow-up: Apple verbally acknowledges the High Power Mode issue on the 14-inch MacBook Pro (M5 Max)" },
-  { date: "2026-07-10", topic: "mac", url: "https://note.com/witty_panda979/n/n4c126e70dae2",
+  { date: "2026-07-10", topic: "mac", url: "https://note.com/beta15_lab/n/n4c126e70dae2",
     ja: "14インチモデルでのM5 Maxの具体的な性能",
     en: "How the M5 Max actually performs in the 14-inch model" },
-  { date: "2026-06-21", topic: "mac", url: "https://note.com/witty_panda979/n/ne843616d7cc3",
+  { date: "2026-06-21", topic: "mac", url: "https://note.com/beta15_lab/n/ne843616d7cc3",
     ja: "MacBook Pro M5 Max、GPUのクロックが1000MHzしかないのにベンチマークがおかしい件",
     en: "MacBook Pro M5 Max: the GPU clock reads only 1000 MHz, yet the benchmarks look odd" },
-  { date: "2026-06-19", topic: "mac", url: "https://note.com/witty_panda979/n/nd7ea34a17e49",
+  { date: "2026-06-19", topic: "mac", url: "https://note.com/beta15_lab/n/nd7ea34a17e49",
     ja: "14インチMacBook Pro（M5 Max）のHigh Power Modeが機能していない疑惑を徹底検証した",
     en: "A thorough test of whether High Power Mode works on the 14-inch MacBook Pro (M5 Max)" },
-  { date: "2025-12-20", topic: "econ", url: "https://note.com/witty_panda979/n/nd5af8d644eb1",
+  { date: "2025-12-20", topic: "econ", url: "https://note.com/beta15_lab/n/nd5af8d644eb1",
     ja: "不況は合理的だった― サンディカリズムの思考実験から見えた日本経済停滞の構造 ―",
     en: "The recession was rational: the structure of Japan's stagnation seen through a syndicalist thought experiment" },
-  { date: "2025-12-12", topic: "econ", url: "https://note.com/witty_panda979/n/nd68270064bd8",
+  { date: "2025-12-12", topic: "econ", url: "https://note.com/beta15_lab/n/nd68270064bd8",
     ja: "なぜ金融緩和は効かなくなったのか「投資先が存在しない成熟経済」という仮説",
     en: "Why monetary easing stopped working: the hypothesis of a mature economy with nowhere left to invest" },
+];
+
+/* ---------- 動画（YouTube） ----------
+   id: 動画の番号（サムネイルは assets/videos/<id>.jpg、640×360）
+   enId: 英語版の動画があるときの番号（英語表示ではそちらを開く）
+   topic は記事と同じ TOPICS を使う（mod は「Mod」） */
+const VIDEOS = [
+  { id: "NNeBXM0GKBU", date: "2026-10-12", topic: "history",
+    ja: "ソ連の人々はどう暮らしていたのか① スターリン時代 ― 飢饉・配給・コムナルカ",
+    en: "How people lived in the Soviet Union, part 1: the Stalin era — famine, rationing and the kommunalka" },
+  { id: "jdhVnwykPFQ", date: "2026-10-11", topic: "ai",
+    ja: "Claude CodeでGPTを使う方法",
+    en: "How to use GPT inside Claude Code" },
+  { id: "NYS-0jChnf4", date: "2026-10-10", topic: "ai",
+    ja: "Claude Codeの「プロジェクト」機能、開発で使うべき？ 実画面で検証",
+    en: "Should you use Claude Code's Projects feature for development? Tested on screen" },
+  { id: "3T9ijVNV2q8", date: "2026-10-10", topic: "mac",
+    ja: "なぜ開発者はMacを選ぶのか？ Unix・AI・128GBメモリから考える",
+    en: "Why do developers choose the Mac? Unix, AI and 128 GB of memory" },
+  { id: "ZjpRmBek_iE", date: "2026-10-09", topic: "econ",
+    ja: "14インチMacでAiyagariモデルを解く｜CPU倍精度・単精度とMetal GPU単精度を実測",
+    en: "Solving the Aiyagari model on a 14-inch Mac: CPU double and single precision vs Metal GPU single precision" },
+  { id: "ImFbIYV2pC8", enId: "xrUgKDimSH8", date: "2026-10-09", topic: "mac",
+    ja: "14インチM5 Maxを4か月検証｜ハイパワーモードなのに表示は「No」",
+    en: "14-inch M5 Max: High Power Mode is on, macOS says no — 4 months of testing" },
+  { id: "BrIBh-uh5ro", date: "2026-09-27", topic: "mod",
+    ja: "【Victoria 3 Mod】天朝維新 ― 大清を作り直す大型Mod 予告編",
+    en: "Victoria 3 mod trailer: Celestial Reformation — rebuilding the Qing" },
 ];

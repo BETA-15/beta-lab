@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beta Lab — ソフトウェア・Mod・研究・小説</title>
-  <meta name="description" content="Beta Lab — BETA-15 の個人研究室。Paradox系ゲームのMod、ソフトウェア、経済学の論文、歴史小説、記事をまとめています。">
+  <title>Beta Lab — ソフトウェア・Mod・研究・小説・動画</title>
+  <meta name="description" content="Beta Lab — BETA-15 の個人研究室。Paradox系ゲームのMod、ソフトウェア、経済学の論文、歴史小説、記事、解説動画をまとめています。">
   <meta name="theme-color" content="#f6f2e9">
   <meta property="og:title" content="Beta Lab">
-  <meta property="og:description" content="Software, Paradox mods, economics research, novels and articles by BETA-15.">
+  <meta property="og:description" content="Software, Paradox mods, economics research, novels, articles and videos by BETA-15.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://beta-15.github.io/beta-lab/">
   <meta property="og:image" content="https://beta-15.github.io/beta-lab/assets/mods/3799636904.jpg">
@@ -262,6 +262,22 @@
     .art-list .d { font-size: .82rem; color: var(--muted); }
     .art-list .tp { font-size: .74rem; font-weight: 700; }
     .tp.econ { color: var(--accent); } .tp.politics { color: var(--seal); } .tp.mac { color: var(--vic3); }
+    .tp.history { color: var(--ck3); } .tp.ai { color: var(--hoi4); } .tp.mod { color: var(--vic3); }
+
+    /* ---------- Videos ---------- */
+    .vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .vid { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; transition: transform .22s, box-shadow .22s, border-color .22s; }
+    .vid:hover { transform: translateY(-3px); box-shadow: 0 10px 24px -14px rgba(29,35,46,.35); border-color: var(--rule-strong); }
+    .vid .thumb { position: relative; aspect-ratio: 16 / 9; background: var(--paper-deep); border-bottom: 1px solid var(--rule); }
+    .vid .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .vid .play { position: absolute; right: 10px; bottom: 10px; width: 34px; height: 34px; border-radius: 50%; background: rgba(29,35,46,.78); color: #fff; display: grid; place-items: center; font-size: .8rem; padding-left: 2px; transition: background .2s; }
+    .vid:hover .play { background: var(--seal); }
+    .vid .body { padding: 14px 16px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .vid .meta2 { display: flex; gap: 12px; align-items: baseline; font-size: .74rem; }
+    .vid .d { color: var(--muted); }
+    .vid .tp { font-weight: 700; }
+    .vid h3 { font-family: var(--serif); font-size: 1rem; line-height: 1.55; font-weight: 600; }
+    .vid h3 small { display: block; font-family: var(--sans); font-size: .74rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
     .art-list .tt { font-family: var(--serif); font-size: 1.02rem; line-height: 1.6; }
     .art-list .tt small { display: block; font-family: var(--sans); font-size: .76rem; color: var(--muted); margin-top: 2px; }
     .art-list .ar { color: var(--muted); transition: transform .2s, color .2s; }
@@ -310,6 +326,7 @@
       nav.main a { display: block; padding: 11px 0; border-bottom: 1px solid var(--rule); }
       .lang { margin-left: auto; }
       .mod-grid { grid-template-columns: 1fr 1fr; }
+      .vid-grid { grid-template-columns: 1fr 1fr; }
       .mod.wide { flex-direction: column; }
       .mod.wide .thumb { width: 100%; aspect-ratio: 1 / 1; border-right: 0; border-bottom: 1px solid var(--rule); }
       .paper { grid-template-columns: 1fr; gap: 20px; }
@@ -334,6 +351,12 @@
       .feat-grid { grid-template-columns: 1fr; }
       .feat-mod { grid-column: auto; }
       .mod-grid { grid-template-columns: 1fr; gap: 12px; }
+      .vid-grid { grid-template-columns: 1fr; gap: 12px; }
+      .vid { flex-direction: row; align-items: flex-start; }
+      .vid .thumb { width: 136px; flex: none; margin: 12px 0 12px 12px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+      .vid .play { width: 24px; height: 24px; font-size: .6rem; right: 5px; bottom: 5px; }
+      .vid .body { padding: 10px 14px 10px; min-width: 0; gap: 4px; }
+      .vid h3 { font-size: .88rem; line-height: 1.5; }
       .mod, .mod.wide { grid-column: auto; flex-direction: row; }
       .mod .thumb, .mod.wide .thumb { width: 104px; height: 104px; flex: none; align-self: flex-start; aspect-ratio: 1 / 1; margin: 12px 0 12px 12px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
       .mod .game { left: 4px; top: 4px; font-size: .56rem; padding: 0 5px; }
@@ -370,6 +393,7 @@
         <li><a href="#software"><span data-l="ja">ソフトウェア</span><span data-l="en">Software</span></a></li>
         <li><a href="#novels"><span data-l="ja">小説</span><span data-l="en">Novels</span></a></li>
         <li><a href="#articles"><span data-l="ja">記事</span><span data-l="en">Articles</span></a></li>
+        <li><a href="#videos"><span data-l="ja">動画</span><span data-l="en">Videos</span></a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
@@ -394,14 +418,15 @@
         </div>
         <h1 class="rise d2">Beta<br><em>Lab.</em></h1>
         <p class="lede rise d3">
-          <span data-l="ja">歴史・経済・制度を、ソフトウェアとMod、論文と小説で考える。Paradox系ゲームのMod制作から、マクロ経済学の理論研究、歴史ファンタジー小説まで、分野をまたいで制作しています。</span>
-          <span data-l="en">Thinking through history, economics and institutions — in software, mods, papers and fiction. From Paradox game mods to macroeconomic theory and a historical fantasy novel.</span>
+          <span data-l="ja">歴史・経済・制度を、ソフトウェアとMod、論文と小説、解説動画で考える。Paradox系ゲームのMod制作から、マクロ経済学の理論研究、歴史ファンタジー小説、YouTubeの解説動画まで、分野をまたいで制作しています。</span>
+          <span data-l="en">Thinking through history, economics and institutions — in software, mods, papers, fiction and explainer videos. From Paradox game mods to macroeconomic theory, a historical fantasy novel and videos on YouTube.</span>
         </p>
         <div class="actions rise d4">
           <a class="btn primary" href="#mods"><span data-l="ja">作品を見る</span><span data-l="en">See the work</span> →</a>
           <a class="btn" href="https://github.com/BETA-15" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a class="btn" data-link="workshop" target="_blank" rel="noopener noreferrer">Steam Workshop ↗</a>
           <a class="btn" data-link="note" target="_blank" rel="noopener noreferrer">note ↗</a>
+          <a class="btn" data-link="youtube" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
         </div>
       </div>
 
@@ -503,8 +528,8 @@
         <div class="sec-no">05</div>
         <h2><small>Articles &amp; Notes</small><span data-l="ja">記事</span><span data-l="en">Articles</span></h2>
         <p>
-          <span data-l="ja">研究途中の考察、政治制度の提案、Macの検証レポートなどをnoteに書いています。</span>
-          <span data-l="en">Working notes on economics, proposals on political institutions and Mac test reports, written on note (in Japanese).</span>
+          <span data-l="ja">研究途中の考察、政治制度の提案、歴史の解説、AI開発ツールの使い方、Macの検証レポートなどをnoteに書いています。</span>
+          <span data-l="en">Working notes on economics, proposals on political institutions, history explainers, AI dev-tool guides and Mac test reports, written on note (in Japanese).</span>
         </p>
       </div>
       <div class="filters" id="art-filters" role="group" aria-label="Filter by topic" style="margin-bottom:18px"></div>
@@ -515,11 +540,29 @@
     </div>
   </section>
 
-  <!-- ===== 06 ABOUT ===== -->
-  <section class="block" id="about">
+  <!-- ===== 06 VIDEOS ===== -->
+  <section class="block" id="videos">
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="sec-no">06</div>
+        <h2><small>Videos</small><span data-l="ja">動画</span><span data-l="en">Videos</span></h2>
+        <p>
+          <span data-l="ja">経済学・歴史・ITを「なぜそうなったのか」から解く解説動画を、YouTubeで公開しています。ナレーションは VOICEVOX の春日部つむぎです。</span>
+          <span data-l="en">Explainer videos on economics, history and tech that start from "why did it turn out this way?", on YouTube (mostly in Japanese, narrated with VOICEVOX).</span>
+        </p>
+      </div>
+      <div class="vid-grid" id="vid-grid"></div>
+      <div class="more">
+        <a class="btn" data-link="youtube" target="_blank" rel="noopener noreferrer"><span data-l="ja">YouTubeチャンネルを見る</span><span data-l="en">Visit the YouTube channel</span> ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07 ABOUT ===== -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">07</div>
         <h2><small>About</small><span data-l="ja">この研究室について</span><span data-l="en">About</span></h2>
       </div>
       <div class="about reveal">
@@ -547,6 +590,7 @@
             <li><a data-link="ssrn" target="_blank" rel="noopener noreferrer">SSRN <span>Papers ↗</span></a></li>
             <li><a data-link="syosetu" target="_blank" rel="noopener noreferrer"><span data-l="ja" style="color:inherit;font-size:inherit">小説家になろう</span><span data-l="en" style="color:inherit;font-size:inherit">Shōsetsuka ni Narō</span> <span>Novels ↗</span></a></li>
             <li><a data-link="note" target="_blank" rel="noopener noreferrer">note <span>Articles ↗</span></a></li>
+            <li><a data-link="youtube" target="_blank" rel="noopener noreferrer">YouTube <span>Videos ↗</span></a></li>
           </ul>
         </div>
       </div>
@@ -601,6 +645,7 @@
       ["03", "#software", J("ソフトウェア", "Software"), `<b>${SOFTWARE.length}</b>${J("本", " tools")}<small>${J(`公開 ${publicSw}・開発中 ${SOFTWARE.length - publicSw}`, `${publicSw} public · ${SOFTWARE.length - publicSw} in development`)}</small>`],
       ["04", "#novels", J("小説", "Novels"), `<b>${episodes}</b>${J("話", " episodes")}<small>${novelSummary()}</small>`],
       ["05", "#articles", J("記事", "Articles"), `<b>${ARTICLES.length}</b>${J("本", " articles")}<small>note</small>`],
+      ["06", "#videos", J("動画", "Videos"), `<b>${VIDEOS.length}</b>${J("本", " videos")}<small>YouTube</small>`],
     ];
     $("toc").innerHTML = rows.map(([no, href, name, val]) =>
       `<a href="${href}"><span class="no">§${no}</span><span class="name">${name}</span><span class="dots"></span><span class="val num">${val}</span></a>`).join("");
@@ -799,6 +844,24 @@
       </a></li>`).join("");
   }
 
+  const VIDEO_TOPIC = (k) => (k === "mod" ? "Mod" : tx(TOPICS[k]));
+  function renderVideos() {
+    $("vid-grid").innerHTML = VIDEOS.map((v, i) => {
+      const id = lang() === "en" && v.enId ? v.enId : v.id;
+      return `
+      <a class="vid reveal" href="https://www.youtube.com/watch?v=${id}" ${ext} style="transition-delay:${Math.min(i, 5) * 60}ms">
+        <div class="thumb">
+          <img src="assets/videos/${id}.jpg" alt="" loading="lazy" width="640" height="360">
+          <span class="play" aria-hidden="true">▶</span>
+        </div>
+        <div class="body">
+          <span class="meta2"><span class="d num">${dot(v.date)}</span><span class="tp ${v.topic}">${esc(VIDEO_TOPIC(v.topic))}</span></span>
+          <h3>${esc(tx(v))}${lang() === "en" && !v.enId ? `<small>${J("", "In Japanese")}</small>` : ""}</h3>
+        </div>
+      </a>`;
+    }).join("");
+  }
+
   /* ---------- Reveal on scroll ---------- */
   let io;
   function observe() {
@@ -812,14 +875,14 @@
 
   function renderAll() {
     renderToc(); renderFeatured(); renderPapers(); renderModFilters(); renderMods();
-    renderSoftware(); renderNovels(); renderArtFilters(); renderArticles();
+    renderSoftware(); renderNovels(); renderArtFilters(); renderArticles(); renderVideos();
     observe();
   }
 
   /* ---------- Language ---------- */
   function setLang(l, save) {
     root.lang = l;
-    document.title = l === "en" ? "Beta Lab — Software, Mods, Research, Novels" : "Beta Lab — ソフトウェア・Mod・研究・小説";
+    document.title = l === "en" ? "Beta Lab — Software, Mods, Research, Novels, Videos" : "Beta Lab — ソフトウェア・Mod・研究・小説・動画";
     document.querySelectorAll("[data-set-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLang === l)));
     if (save) { try { localStorage.setItem("betalab-lang", l); } catch (e) {} }
     renderAll();
