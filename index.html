@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BETA15-Lab — ソフトウェア・Mod・研究・小説・動画</title>
-  <meta name="description" content="BETA15-Lab — 経済学・歴史・ITの個人研究室。Paradox系ゲームのMod、ソフトウェア、経済学の論文、歴史小説、記事、解説動画をまとめています。">
+  <title>BETA15-Lab — 動画・Mod・ソフトウェア・小説・研究</title>
+  <meta name="description" content="BETA15-Lab — 経済学・歴史・ITの個人研究室。解説動画、Paradox系ゲームのMod、ソフトウェア、歴史小説、記事、経済学の論文をまとめています。">
   <meta name="theme-color" content="#f6f2e9">
   <meta property="og:title" content="BETA15-Lab">
-  <meta property="og:description" content="Software, Paradox mods, economics research, novels, articles and videos by BETA15-Lab.">
+  <meta property="og:description" content="Videos, Paradox mods, software, novels, articles and economics research by BETA15-Lab.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://beta-15.github.io/beta-lab/">
   <meta property="og:image" content="https://beta-15.github.io/beta-lab/assets/mods/3799636904.jpg">
@@ -123,19 +123,18 @@
 
     /* ---------- Featured ---------- */
     .featured { padding: 64px 0 24px; }
-    .feat-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 22px; }
+    .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .feat { position: relative; display: flex; flex-direction: column; min-height: 300px; border: 1px solid var(--rule); background: var(--card); border-radius: 10px; overflow: hidden; transition: transform .25s, box-shadow .25s, border-color .25s; }
     .feat:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(29,35,46,.45); border-color: var(--rule-strong); }
     .feat .label { font-size: .7rem; letter-spacing: .18em; color: var(--seal); font-weight: 700; text-transform: uppercase; }
     .feat h3 { font-family: var(--serif); font-size: 1.22rem; line-height: 1.5; margin: 6px 0 4px; }
     .feat p { font-size: .86rem; color: var(--muted); }
     .feat-body { padding: 20px 22px 22px; margin-top: auto; }
-    .feat-mod { display: grid; grid-template-columns: 44% 1fr; }
-    .feat-mod img { width: 100%; height: 100%; object-fit: cover; }
-    .feat-mod .feat-body { margin-top: 0; display: flex; flex-direction: column; justify-content: flex-end; }
-    .feat-paper .glyph { flex: 1; display: flex; align-items: center; justify-content: center; gap: .12em; background: var(--accent); color: var(--paper); font-family: var(--serif); font-size: 3.4rem; letter-spacing: .06em; min-height: 150px; }
+    .feat-media { position: relative; flex: none; height: 168px; background: var(--paper-deep); border-bottom: 1px solid var(--rule); overflow: hidden; }
+    .feat-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .feat-paper .glyph { flex: none; height: 168px; display: flex; align-items: center; justify-content: center; gap: .12em; background: var(--accent); color: var(--paper); font-family: var(--serif); font-size: 3.4rem; letter-spacing: .06em; min-height: 150px; }
     .feat-paper .glyph span { color: #e9c9a4; }
-    .feat-novel .glyph { flex: 1; display: flex; justify-content: center; align-items: center; gap: 14px; background: var(--paper-deep); min-height: 150px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+    .feat-novel .glyph { flex: none; height: 168px; display: flex; justify-content: center; align-items: center; gap: 14px; background: var(--paper-deep); min-height: 150px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
     .vert { writing-mode: vertical-rl; font-family: var(--serif); }
     .feat-novel .vert.t { font-size: 1.9rem; font-weight: 800; letter-spacing: .12em; }
     .feat-novel .vert.s { font-size: .9rem; color: var(--ink-2); letter-spacing: .2em; }
@@ -317,7 +316,6 @@
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
       .mod-grid { grid-template-columns: repeat(3, 1fr); }
       .feat-grid { grid-template-columns: 1fr 1fr; }
-      .feat-mod { grid-column: span 2; }
       .sw-main { grid-template-columns: 1fr; }
       .sw-dev { grid-template-columns: 1fr 1fr; }
     }
@@ -352,7 +350,6 @@
       .brand .txt { display: none; }
       .hero { padding: 56px 0 48px; }
       .feat-grid { grid-template-columns: 1fr; }
-      .feat-mod { grid-column: auto; }
       .mod-grid { grid-template-columns: 1fr; gap: 12px; }
       .vid-grid { grid-template-columns: 1fr; gap: 12px; }
       .vid { flex-direction: row; align-items: flex-start; }
@@ -391,12 +388,12 @@
 
     <nav class="main" id="site-nav">
       <ul>
-        <li><a href="#research"><span data-l="ja">研究</span><span data-l="en">Research</span></a></li>
+        <li><a href="#videos"><span data-l="ja">動画</span><span data-l="en">Videos</span></a></li>
         <li><a href="#mods"><span data-l="ja">Mod</span><span data-l="en">Mods</span></a></li>
         <li><a href="#software"><span data-l="ja">ソフトウェア</span><span data-l="en">Software</span></a></li>
         <li><a href="#novels"><span data-l="ja">小説</span><span data-l="en">Novels</span></a></li>
         <li><a href="#articles"><span data-l="ja">記事</span><span data-l="en">Articles</span></a></li>
-        <li><a href="#videos"><span data-l="ja">動画</span><span data-l="en">Videos</span></a></li>
+        <li><a href="#research"><span data-l="ja">研究</span><span data-l="en">Research</span></a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
@@ -421,11 +418,11 @@
         </div>
         <h1 class="rise d2">BETA15<br><em>Lab.</em></h1>
         <p class="lede rise d3">
-          <span data-l="ja">歴史・経済・制度を、ソフトウェアとMod、論文と小説、解説動画で考える。Paradox系ゲームのMod制作から、マクロ経済学の理論研究、歴史ファンタジー小説、YouTubeの解説動画まで、分野をまたいで制作しています。</span>
-          <span data-l="en">Thinking through history, economics and institutions — in software, mods, papers, fiction and explainer videos. From Paradox game mods to macroeconomic theory, a historical fantasy novel and videos on YouTube.</span>
+          <span data-l="ja">経済学・歴史・ITを「なぜそうなったのか」から考える。YouTubeの解説動画、Paradox系ゲームのMod、ソフトウェア開発から、歴史ファンタジー小説、マクロ経済学の論文まで、分野をまたいで制作しています。</span>
+          <span data-l="en">Economics, history and tech, starting from "why did it turn out this way?" — explainer videos on YouTube, Paradox game mods and software, through to a historical fantasy novel and papers in macroeconomics.</span>
         </p>
         <div class="actions rise d4">
-          <a class="btn primary" href="#mods"><span data-l="ja">作品を見る</span><span data-l="en">See the work</span> →</a>
+          <a class="btn primary" href="#videos"><span data-l="ja">作品を見る</span><span data-l="en">See the work</span> →</a>
           <a class="btn" href="https://github.com/BETA-15" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a class="btn" data-link="workshop" target="_blank" rel="noopener noreferrer">Steam Workshop ↗</a>
           <a class="btn" data-link="note" target="_blank" rel="noopener noreferrer">note ↗</a>
@@ -448,18 +445,21 @@
     </div>
   </section>
 
-  <!-- ===== 01 RESEARCH ===== -->
-  <section class="block" id="research">
+  <!-- ===== 01 VIDEOS ===== -->
+  <section class="block" id="videos">
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="sec-no">01</div>
-        <h2><small>Research &amp; Papers</small><span data-l="ja">研究・論文</span><span data-l="en">Research</span></h2>
+        <h2><small>Videos</small><span data-l="ja">動画</span><span data-l="en">Videos</span></h2>
         <p>
-          <span data-l="ja">マクロ経済学、とくに経済成長と金融政策の効き方を、制度・人口・資本構造といった「構造的な条件」から考えています。論文はZenodoとSSRNで公開し、改訂を重ねています。</span>
-          <span data-l="en">Macroeconomics — especially growth and how monetary policy works — seen through structural conditions such as institutions, demographics and capital structure. Papers are published and continually revised on Zenodo and SSRN.</span>
+          <span data-l="ja">経済学・歴史・ITを「なぜそうなったのか」から解く解説動画を、YouTubeで公開しています。ナレーションは VOICEVOX の春日部つむぎです。</span>
+          <span data-l="en">Explainer videos on economics, history and tech that start from "why did it turn out this way?", on YouTube (mostly in Japanese, narrated with VOICEVOX).</span>
         </p>
       </div>
-      <div id="papers"></div>
+      <div class="vid-grid" id="vid-grid"></div>
+      <div class="more">
+        <a class="btn" data-link="youtube" target="_blank" rel="noopener noreferrer"><span data-l="ja">YouTubeチャンネルを見る</span><span data-l="en">Visit the YouTube channel</span> ↗</a>
+      </div>
     </div>
   </section>
 
@@ -543,21 +543,18 @@
     </div>
   </section>
 
-  <!-- ===== 06 VIDEOS ===== -->
-  <section class="block" id="videos">
+  <!-- ===== 06 RESEARCH ===== -->
+  <section class="block" id="research">
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="sec-no">06</div>
-        <h2><small>Videos</small><span data-l="ja">動画</span><span data-l="en">Videos</span></h2>
+        <h2><small>Research &amp; Papers</small><span data-l="ja">研究・論文</span><span data-l="en">Research</span></h2>
         <p>
-          <span data-l="ja">経済学・歴史・ITを「なぜそうなったのか」から解く解説動画を、YouTubeで公開しています。ナレーションは VOICEVOX の春日部つむぎです。</span>
-          <span data-l="en">Explainer videos on economics, history and tech that start from "why did it turn out this way?", on YouTube (mostly in Japanese, narrated with VOICEVOX).</span>
+          <span data-l="ja">マクロ経済学、とくに経済成長と金融政策の効き方を、制度・人口・資本構造といった「構造的な条件」から考えています。論文はZenodoとSSRNで公開し、改訂を重ねています。</span>
+          <span data-l="en">Macroeconomics — especially growth and how monetary policy works — seen through structural conditions such as institutions, demographics and capital structure. Papers are published and continually revised on Zenodo and SSRN.</span>
         </p>
       </div>
-      <div class="vid-grid" id="vid-grid"></div>
-      <div class="more">
-        <a class="btn" data-link="youtube" target="_blank" rel="noopener noreferrer"><span data-l="ja">YouTubeチャンネルを見る</span><span data-l="en">Visit the YouTube channel</span> ↗</a>
-      </div>
+      <div id="papers"></div>
     </div>
   </section>
 
@@ -644,12 +641,12 @@
 
   function renderToc() {
     const rows = [
-      ["01", "#research", J("研究・論文", "Research"), `<b>${PAPERS.length}</b>${J("本", PAPERS.length > 1 ? " papers" : " paper")}<small>${PAPERS.length > 1 ? J("理論・実証", "theory & empirical") : esc(tx(PAPERS[0].revision).split("（")[0].split(" (")[0])}</small>`],
+      ["01", "#videos", J("動画", "Videos"), `<b>${VIDEOS.length}</b>${J("本", " videos")}<small>YouTube</small>`],
       ["02", "#mods", "Mod", `<b>${MODS.length}</b>${J("本", " mods")}<small>${J(`${gameCount}タイトル・購読 ${num(totalSubs)}`, `${gameCount} games · ${num(totalSubs)} subscribers`)}</small>`],
       ["03", "#software", J("ソフトウェア", "Software"), `<b>${SOFTWARE.length}</b>${J("本", " tools")}<small>${J(`公開 ${publicSw}・開発中 ${SOFTWARE.length - publicSw}`, `${publicSw} public · ${SOFTWARE.length - publicSw} in development`)}</small>`],
       ["04", "#novels", J("小説", "Novels"), `<b>${episodes}</b>${J("話", " episodes")}<small>${novelSummary()}</small>`],
       ["05", "#articles", J("記事", "Articles"), `<b>${ARTICLES.length}</b>${J("本", " articles")}<small>note</small>`],
-      ["06", "#videos", J("動画", "Videos"), `<b>${VIDEOS.length}</b>${J("本", " videos")}<small>YouTube</small>`],
+      ["06", "#research", J("研究・論文", "Research"), `<b>${PAPERS.length}</b>${J("本", PAPERS.length > 1 ? " papers" : " paper")}<small>${PAPERS.length > 1 ? J("理論・実証", "theory & empirical") : esc(tx(PAPERS[0].revision).split("（")[0].split(" (")[0])}</small>`],
     ];
     $("toc").innerHTML = rows.map(([no, href, name, val]) =>
       `<a href="${href}"><span class="no">§${no}</span><span class="name">${name}</span><span class="dots"></span><span class="val num">${val}</span></a>`).join("");
@@ -659,24 +656,25 @@
   }
 
   function renderFeatured() {
+    const v = VIDEOS.find((x) => !x.short) || VIDEOS[0];
+    const vid = lang() === "en" && v.enId ? v.enId : v.id;
     const m = MODS.find((x) => x.featured) || MODS[0];
     const p = PAPERS[0];
     const n = NOVELS[0];
     $("featured").innerHTML = `
+      <a class="feat feat-video reveal" href="#videos">
+        <div class="feat-media"><img src="assets/videos/${vid}.jpg" alt="" loading="lazy" width="640" height="360"></div>
+        <div class="feat-body">
+          <div class="label">${J("最新の動画", "Latest video")} · ${dot(v.date)}</div>
+          <h3>${esc(tx(v))}</h3>
+        </div>
+      </a>
       <a class="feat feat-mod reveal" href="#mods">
-        <img src="assets/mods/${m.id}.jpg" alt="" loading="lazy" width="480" height="480">
+        <div class="feat-media"><img src="assets/mods/${m.id}.jpg" alt="" loading="lazy" width="480" height="480"></div>
         <div class="feat-body">
           <div class="label">${J("注目の Mod", "Featured mod")} · ${GAMES[m.game].en}</div>
           <h3>${esc(m.title)}</h3>
-          <p>${esc(tx(m))}</p>
-        </div>
-      </a>
-      <a class="feat feat-paper reveal" href="#research">
-        <div class="glyph" aria-hidden="true">Φ<span>≶</span>θ</div>
-        <div class="feat-body">
-          <div class="label">${J("論文", "Paper")} · ${esc(tx(p.revision))}</div>
-          <h3>${J(esc(p.titleJa), "General Theory of Structural Constraints")}</h3>
-          <p>${J("金融緩和はなぜ成長を生まなくなったのか。", "Why monetary easing stopped producing growth.")}</p>
+          <p>${J(`購読 ${num(m.subs)}`, `${num(m.subs)} subscribers`)}</p>
         </div>
       </a>
       <a class="feat feat-novel reveal" href="#novels">
@@ -689,6 +687,14 @@
           <div class="label">${J("小説", "Novel")} · ${n.episodes}${J("話", " episodes")} · ${esc(tx(NOVEL_STATUS[n.status]))}</div>
           <h3>${esc(n.title)}</h3>
           <p>${esc(tx(n.genre))}</p>
+        </div>
+      </a>
+      <a class="feat feat-paper reveal" href="#research">
+        <div class="glyph" aria-hidden="true">Φ<span>≶</span>θ</div>
+        <div class="feat-body">
+          <div class="label">${J("論文", "Paper")} · ${esc(tx(p.revision))}</div>
+          <h3>${J(esc(p.titleJa), "General Theory of Structural Constraints")}</h3>
+          <p>${J("金融緩和はなぜ成長を生まなくなったのか。", "Why monetary easing stopped producing growth.")}</p>
         </div>
       </a>`;
   }
@@ -888,7 +894,7 @@
   /* ---------- Language ---------- */
   function setLang(l, save) {
     root.lang = l;
-    document.title = l === "en" ? "BETA15-Lab — Software, Mods, Research, Novels, Videos" : "BETA15-Lab — ソフトウェア・Mod・研究・小説・動画";
+    document.title = l === "en" ? "BETA15-Lab — Videos, Mods, Software, Novels, Research" : "BETA15-Lab — 動画・Mod・ソフトウェア・小説・研究";
     document.querySelectorAll("[data-set-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLang === l)));
     if (save) { try { localStorage.setItem("betalab-lang", l); } catch (e) {} }
     renderAll();
