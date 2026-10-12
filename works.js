@@ -1,5 +1,5 @@
 /*
-  Beta Lab — 作品データ
+  BETA15-Lab — 作品データ
   ------------------------------------------------------------
   サイトに載る作品はすべてこのファイルで管理します。
   作品を追加するときは、同じ形の { ... } を一つ足してください。
@@ -17,6 +17,7 @@ const LINKS = {
   zenodo: "https://doi.org/10.5281/zenodo.17967671",
   ssrn: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5915003",
   youtube: "https://www.youtube.com/@BETA15-Lab",
+  x: "https://x.com/BETAJP15",
 };
 
 const GAMES = {
@@ -151,6 +152,20 @@ const PAPERS = [
       { label: "GitHub", url: "https://github.com/BETA-15/General-Theory-on-Structural-Constraints" },
     ],
   },
+  {
+    companion: true,
+    year: "2026",
+    type: { ja: "実証論文・プレプリント", en: "Empirical companion · Preprint" },
+    revision: { ja: "第3版（2026年9月）", en: "Version 3 (September 2026)" },
+    title: "Does a Structural-Constraint Diagnosis Predict the Effectiveness of Monetary Easing? Exploratory Evidence from Within-Country Comparisons with Judgments Fixed before Matching",
+    titleJa: "構造的制約の診断は金融緩和の効きを予測するか ― 同じ国の中の比較と照合前の固定による探索的検証",
+    ja: "上の理論論文の中心命題を、同じ国の中の時期どうしの比較で検証した実証の続編です。構造状態を伏せたグラフの判断を照合の前に固定し、支持されなかった結果も同じ重さで報告しています。本体と同じZenodoのページに収録しています。",
+    en: "The empirical companion to the theory paper above, testing its central proposition by comparing periods within the same country. Judgments on graphs with structural states hidden were fixed before matching, and unsupported results are reported with the same weight as supported ones. Included in the same Zenodo record as the theory paper.",
+    keywords: ["Within-country comparison", "Pre-specified analysis", "Blinded judgment", "Placebo test", "JEL E22 · E52 · C18 · O47"],
+    links: [
+      { label: "Zenodo", url: LINKS.zenodo, note: { ja: "本体と同じページ", en: "same record" } },
+    ],
+  },
 ];
 
 /* ---------- ソフトウェア ----------
@@ -264,8 +279,12 @@ const ARTICLES = [
 /* ---------- 動画（YouTube） ----------
    id: 動画の番号（サムネイルは assets/videos/<id>.jpg、640×360）
    enId: 英語版の動画があるときの番号（英語表示ではそちらを開く）
+   short: true でショート（/shorts/ で開き、「ショート」の札を付ける）
    topic は記事と同じ TOPICS を使う（mod は「Mod」） */
 const VIDEOS = [
+  { id: "BEE2qu3GBOM", short: true, date: "2026-10-12", topic: "history",
+    ja: "飢えているのに、なぜ穀物を輸出した？ スターリン時代のソ連",
+    en: "Why export grain while people starved? The Soviet Union under Stalin" },
   { id: "NNeBXM0GKBU", date: "2026-10-12", topic: "history",
     ja: "ソ連の人々はどう暮らしていたのか① スターリン時代 ― 飢饉・配給・コムナルカ",
     en: "How people lived in the Soviet Union, part 1: the Stalin era — famine, rationing and the kommunalka" },
