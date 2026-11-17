@@ -174,12 +174,13 @@ const SOFTWARE = [
   {
     status: "public",
     title: "Paradox Localization Translator",
-    version: "v0.11.75",
+    version: "v0.13.2",
     platforms: "macOS · Windows · Linux",
-    ja: "Paradox系ゲームのModローカライズを、ローカルLLMまたはクラウドAPIで日本語化・修復・調査するGUIツールです。未翻訳箇所のチェック、差分翻訳、QA、日本語化Modの有無や欠損の調査まで、ひとつの画面で行えます。",
-    en: "A GUI tool that translates, repairs and audits Paradox game mod localization into Japanese with a local LLM or a cloud API — including untranslated-line checks, diff translation, QA and detection of existing Japanese translation mods.",
+    ja: "Paradox系ゲームのModのローカライズを、ローカルLLM（Ollama・LM Studio）またはクラウドAIで、ゲームが対応する11言語へ翻訳するGUIツールです。書式の記号を壊さずに訳し、訳し残しの修復、差分だけの翻訳、原文と並べたQA、既存の翻訳Modの調査まで行えます。アプリの画面も11言語に対応。Modの自動検出は Crusader Kings III・Victoria 3・Hearts of Iron IV・Stellaris・Europa Universalis V です。",
+    en: "A GUI tool that translates Paradox game mod localization into any of the 11 languages the games support, with a local LLM (Ollama, LM Studio) or a cloud AI. It keeps formatting codes intact and also repairs untranslated lines, translates only what changed, offers side-by-side QA and finds existing translation mods. The app itself is available in the same 11 languages. Automatic mod detection covers Crusader Kings III, Victoria 3, Hearts of Iron IV, Stellaris and Europa Universalis V.",
     tags: ["Python", "Local LLM", "Ollama / LM Studio", "MIT"],
     links: [
+      { label: { ja: "紹介サイト", en: "Website" }, url: "https://beta-15.github.io/paradox-localization-translator/" },
       { label: "GitHub", url: "https://github.com/BETA-15/paradox-localization-translator" },
       { label: "Releases", url: "https://github.com/BETA-15/paradox-localization-translator/releases/latest" },
     ],
